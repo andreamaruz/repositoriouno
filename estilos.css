@@ -1,0 +1,39 @@
+body{
+
+    margin: 0;
+     font-family: verdana;
+ 
+ }
+ 
+ header{
+ 
+    background: purple;
+    color: white;
+    padding: 1px;
+ }
+ 
+ main{
+    padding: 1em 2em;
+ }
+ 
+ @media (max-width: 30em) {
+   table tr{
+    display: flex;
+    flex-direction: column;
+    border:1px solid gray;
+    padding: 1e;
+    margin-bottom: 1em;
+ 
+   }
+ 
+   table td[data-title]{
+    display: flex;
+   }
+ 
+   table td[data-title]::before{
+    content: attr(data-title);
+    width: 90px;
+    font-weight: bold;
+   }
+    
+ }

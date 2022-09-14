@@ -8,9 +8,11 @@
         //]]>
         </script>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Doors</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    
+
+    <link rel="stylesheet" href="estilos.css"/>
     <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
  <!-- Compiled and minified Bootstrap CSS -->
@@ -25,7 +27,7 @@
 <style>
 
     table, th, td{
-        border: 10px solid palevioletred; 
+        border: 1px solid palevioletred; 
         border-collapse: collapse;
     }
     th{
@@ -35,8 +37,8 @@
 
 </head>
 <body>
-    <marquee behavior="scroll" direction="left" scrollamount="20">
-<table border="1px", style="width: 100%;">
+    
+<table border="1px", style="width: 100%;">  
 <tr>
     <th> ID </th>
     <th> Nombre </th>
@@ -45,31 +47,32 @@
     <th> Canción</th>
 </tr>
 
-<tr> 
-    
-    <td> 1965     </td>
-    <td> The Doors </td>
-    <td> <p>Fue una banda de rock estadounidense, formada en los Ángeles, </p>
+<tr>     
+    <td data-titlte="ID"> 1965   </td>
+    <td data-titlte="Nombre"> The Doors </td>
+    <td data-titlte="Descripción"> <p>Fue una banda de rock estadounidense, formada en los Ángeles, </p>
     <p>California en julio de 1965 y disuelta en 1973.</p> </td>
 
-    <td>
+    <td data-titlte="Fotografía">
     <img src="doors.jpg" width="160" height="120" /></td>
-    <td> <p>     
+    <td data-titlte="Canción"> <p>     
     <a href="https://youtu.be/qoX6AKuYWL8 .html" target="_blank">Light My Fire </a> 
      </p> </td>  </tr> 
+     
     
     <tr>
-        <td> 1965     </td>
-        <td> The Neighbourhood </td>
-        <td> <p>Es un grupo de musica alternativa rock estadounidense creado en agosto de 2011. </p></td>    
-        <td>
+        <td data-titlte="ID"> 1965     </td>
+        <td data-titlte="Nombre"> The Neighbourhood </td>
+        <td data-titlte="Descripción"> <p>Es un grupo de musica alternativa rock estadounidense creado en agosto de 2011. </p></td>    
+        <td data-titlte="Fotografía">
         <img src="nbhd.jpg" width="160" height="160" /></td>
-        <td> <p>     
+        <td data-titlte="Canción"> <p>     
         <a href="https://youtu.be/_lMlsPQJs6U .html" target="_blank">Daddy Issues</a>
          </p> </td>  </tr>
-        
+         
+ 
 </table>
-</marquee> 
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -103,14 +106,14 @@
 </div>
 
 
-    <td> <p> <center> <img style="border: 15px solid; color: black;" src="lisa.jpg" alt="" width="650px" height="400px" /> 
+    <td> <p> <center> <img style="border: 20px solid; color: black;" src="lisa.jpg" alt="" width="550px" height="300px" /> 
         <style>
-            img{max-width:80%;}
+            img{max-width:90%;}
             </style>
     </center>
-    </p> </td>
-        
+    </p> </td>      
 
+     
     
 </body>
 </html>
