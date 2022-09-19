@@ -1,7 +1,11 @@
 from django.shortcuts import render
+from django.contrib.auth.models import User
 
 
 # Create your views here.
 def andrea(request):
+    template ='elefante/prueba.html'
+    user = User.objects.all()
 
-    return render(request, 'prueba.html')
+    context={'user': user}
+    return render(request, template,context)
