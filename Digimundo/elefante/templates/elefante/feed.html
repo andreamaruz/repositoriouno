@@ -1,0 +1,23 @@
+{% extends 'elefante/layout.html' %}
+{% load humanize %} 
+{% block content %}
+{% load static %}
+
+{% if request.user.is_authenticated %}
+<article>
+    <div class="container-article">
+        <img src="{% static 'img/lo.jpg' %}">
+        <div>
+            <h2 class="username"><a href="#">@andrea</a></h2>
+            <i class="clock"></i>
+            <time data-time="#">Prueba</time>
+            <div class="post">Hola mundo</div>
+        </div>
+    </div>
+</article>
+
+{% endif %}
+
+
+
+{% endblock %}

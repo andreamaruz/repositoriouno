@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'elefante'
+    'django.contrib.humanize',
+    'elefante',
 ]
 
 MIDDLEWARE = [
@@ -121,8 +122,8 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-LOGIN_REDIRECT_URL = 'inicio'
-LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'feed'
+LOGIN_URL = 'prueba'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
