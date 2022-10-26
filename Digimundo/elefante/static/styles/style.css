@@ -1,9 +1,5 @@
-body{
-	background: pink;
-	font-size: 62.5%;
-	font-family: 'Varela Round', Helvetica, Arial, serif;
-}
-/* Global Styles*/
+/* Global Styles */ 
+
 h1{
 color: black;
 }
@@ -110,7 +106,7 @@ a{
 	flex: 6 1 5rem;
 	text-align: right;
 	text-transform: uppercase;
-  	color: #7A9D96;
+  color: #7A9D96;
 }
 
 .second-nav .new:hover{
@@ -227,7 +223,7 @@ button#submit {
   width: 100%;
   padding: 20px 0;
   text-align: center;
-  background: #7A9D96;
+  background: #2459cc;
   color: #fff;
   border: 0;
   border-radius: 4px;

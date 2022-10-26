@@ -1,0 +1,134 @@
+{% extends 'elefante/layout.html' %}
+{% load static%}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactanos</title>
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+
+    <style>
+        .main {
+            background: white;
+            width: 50%;
+            margin: 5% auto;
+            border-radius: 2px;
+            padding-bottom: 20px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="container" style="background-color:  rgb(121, 168, 207);">
+        {% csrf_token %}
+        <!-- Formulario-->
+        <!-- <section class="form-register"> -->
+        <form class="form-register">
+
+
+            <div class="info">
+                <h1 class="titt"> Correo</h1>
+                <nav class="second-nav">
+                    <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
+
+
+                </nav>
+                <p class="tecx"> Contactanos</p>
+            </div>
+
+            <div class="elementos">
+                <!-- campos a llenar -->
+                <div class="elementosForm">
+
+                    <p>
+                        <label class="etiquetaForm">Nombre Completo:</label>
+                        <input class="controllers" type="text" name="nombre_completo" id="nombre_completoField"
+                            placeholder="Ingrese su nombre completo" onkeypress="return ch(event)" required>
+                    </p>
+
+                    <p>
+                        <label class="etiquetaForm">Username: </label>
+                        <input class="controllers" type="text" name="username" id="usernameField"
+                            placeholder="username de su preferencia" onkeypress="return ch(event)" required>
+                    </p>
+
+                    <p>
+                        <label class="etiquetaForm">Celular:</label>
+                        <input class="controllers" type="telefono" name="celular" id="celularField"
+                            placeholder="Ingrese un celular vigente" required>
+                    </p>
+
+                    <p>
+                        <label class="etiquetaForm"> Fecha de Nacimiento:</label>
+                        <input class="controllers" type="text" name="fecha_nacimiento" id="fecha_nacimientoField"
+                            placeholder="Ingrese su fecha de nacimiento" required>
+                    </p>
+
+                    <p>
+                        <label class="etiquetaForm">Direccion: </label>
+                        <input class="controllers" type="direccion" name="direccion" id="direccionField"
+                            placeholder="Ingrese su direccion" required>
+                    </p>
+
+                    <p>
+                        <label class="etiquetaForm">Correo Electrónico:</label>
+                        <input class="controllers" type="text" name="correo_electronico" id="correo_electronicoField"
+                            placeholder="Ingrese un correo electronico vigente" required>
+                    </p>
+
+
+                </div>
+                <!-- fin campos a llenar -->
+
+                <!-- <input class="buttons" type="submit" value="correo"> -->
+                <button class="buttons" type="submit" onclick="mail()" style="color: black;"> Send </button>
+
+            </div>
+
+        </form>
+        <!-- </section> -->
+        <!-- Fin Formulario-->
+
+        <!-- Fin contenedor -->
+    </div>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script>
+
+    function mail() {
+
+        $.ajax({
+            url: "{% url 'mail' %}",
+            type: "POST",
+            data: {
+                'nombre_completo': $('#nombre_completoField').val(),
+                'username': $('#usernameField').val(),
+                'celular': $('#celularField').val(),
+                'fecha_nacimiento': $('#fecha_nacimientoField').val(),
+                'direccion': $('#direccionField').val(),
+                'correo_electronico': $('#correo_electronicoField').val(),
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+            }
+        })
+
+    }
+
+
+</script>
+
+
+</html>
+{% endblock %}

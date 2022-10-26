@@ -1,0 +1,288 @@
+{% load static%}
+{% block content%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" type="image" href="https://cdn-icons-png.flaticon.com/512/2130/2130548.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tienda de Sneakers</title>
+    <link rel="stylesheet" href="{% static 'styles/stylecar.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/modal.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" &amp;gt;>
+
+</head>
+<style>
+    .boton {
+        background: rgb(129, 129, 202);
+        border: 2px solid wheat;
+        border-radius: 6px;
+        border: none;
+        color: white;
+        padding: 8px 16px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .boton a {
+        font-family: system-ui;
+        text-decoration: none;
+        background: rgb(129, 129, 202);
+        padding: 9px 23px;
+        color: #fff;
+        font-size: 17px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .boton a:hover {
+        background: black;
+        color: white;
+        border: solid 2px white;
+        transition-duration: .3s;
+    }
+
+    .boton {
+        background-color: rgb(129, 129, 202);
+        color: white;
+        border: 2px solid rgb(129, 129, 202);
+    }
+
+    .boton:hover {
+        background: #fff;
+        color: rgb(129, 129, 202);
+
+
+    }
+
+    .hero__cta {
+        background: rgb(129, 129, 202);
+        border: 2px solid wheat;
+        border-radius: 6px;
+        border: none;
+        color: white;
+        padding: 16px 32px;
+        text-align: center;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        -webkit-transition-duration: 0.4s;
+        /* Safari */
+        transition-duration: 0.4s;
+        cursor: pointer;
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+
+    .hero__cta a {
+        font-family: system-ui;
+        text-decoration: none;
+        background: rgb(129, 129, 202);
+        padding: 9px 23px;
+        color: #fff;
+        font-size: 17px;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    .hero__cta:hover {
+        background: rgb(129, 129, 202);
+        color: rgb(129, 129, 202);
+        border: solid 2px rgb(129, 129, 202);
+        transition-duration: .3s;
+    }
+
+    .hero__cta {
+        background-color: rgb(129, 129, 202);
+        color: white;
+        border: 2px solid rgb(129, 129, 202);
+    }
+
+    .hero__cta:hover {
+        background: #fff;
+        color: rgb(129, 129, 202);
+
+
+    }
+</style>
+
+<body>
+    <header>
+        <div class="header-section container">
+            <div class="logo">
+                <a title="logo" href="{% url 'inicio' %}"><img src="{% static 'img/logo.jpg'%}" width="100"
+                        height="100"></a>
+            </div>
+            <div class="back">
+                <a title="back" href="{% url 'feed' %}"><img src="{%static 'img/back.png'%}" width="70" height="70"></a>
+            </div>
+            <div>
+            <img onmouseover="showCart(this)" class="cart" src="{% static 'img/carti.png' %}" width="100" height="100"
+                alt="">
+            <p class="count-product">0</p>
+            </div>
+            <div class="cart-products" id="products-id">
+                <p class="close-btn" onclick="closeBtn()">X</p>
+                <h3>Mi carrito</h3>
+                <div class="card-items">
+                    <!-- <div class="item">
+                        <img src="./images/products/keyboard-1.jpg" alt="">
+                        <div class="item-content">
+                            <h5>name of product name of product name of product</h5>
+                            <h5 class="cart-price">45.50$</h5>
+                            <h6>Amount: 3</h6>
+                        </div>
+                        <span>X</span>
+                    </div>
+    
+                    <div class="item">
+                        <img src="./images/products/keyboard-1.jpg" alt="">
+                        <div class="item-content">
+                            <h5>name of product name of product name of product</h5>
+                            <h5 class="cart-price">45.50$</h5>
+                            <h6>Amount: 3</h6>
+                        </div>
+                        <span class="delete-product" data-id="">X</span>
+                    </div> -->
+                </div>
+                <input type="hidden">Total: <strong class="price-total">0</strong> $</input>
+                <a href="{% url 'compra' %}" class="hero__cta">Pagar</a>
+
+            </div>
+        </div>
+    </header>
+
+
+    <section class="container">
+        <div class="products">
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/drop1.jpg' %}" alt="">
+                    <p><span>2200</span>$</p>
+                </div>
+                <p class="title">Adidas Drop Step</p>
+                <a href="" data-id="1" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/superstar1.jpg' %}" alt="">
+                    <p><span>2300</span>$</p>
+                </div>
+                <p class="title"> Adidas Superstar</p>
+                <a href="" class="btn-add-cart" data-id="2">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/astir1.jpg' %}" alt="">
+                    <p><span>1600</span>$</p>
+                </div>
+                <p class="title"> Adidas Astir</p>
+                <a href="" data-id="3" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/superstar2.jpg' %}" alt="">
+                    <p><span>2100</span>$</p>
+                </div>
+                <p class="title"> Adidas Superstar Clásicos</p>
+                <a href="" data-id="4" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/airmax1.jpg' %}" alt="">
+                    <p><span>1469</span>$</p>
+                </div>
+                <p class="title"> Nike Air Max Excee</p>
+                <a href="" data-id="5" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/airmax2.jpg' %}" alt="">
+                    <p><span>2239</span>$</p>
+                </div>
+                <p class="title"> Nike Air Max 90</p>
+                <a href="" data-id="6" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/air1.jpg' %}" alt="">
+                    <p><span>2800</span>$</p>
+                </div>
+                <p class="title"> Nike Air Force 1</p>
+                <a href="" data-id="7" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/air2.jpg' %}" alt="">
+                    <p><span>1400</span>$</p>
+                </div>
+                <p class="title"> Nike Air Force 1 07'</p>
+                <a href="" data-id="8" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/cali1.jpg' %}" alt="">
+                    <p><span>1500</span>$</p>
+                </div>
+                <p class="title"> Puma Cali Dream</p>
+                <a href="" data-id="9" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/slip1.jpg' %}" alt="">
+                    <p><span>2300</span>$</p>
+                </div>
+                <p class="title"> Puma Slipstream Lo Retro</p>
+                <a href="" data-id="10" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/mayze1.jpg' %}" alt="">
+                    <p><span>2400</span>$</p>
+                </div>
+                <p class="title"> Puma Mayze</p>
+                <a href="" data-id="11" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+            <div class="carts">
+                <div>
+                    <img src="{% static 'img/products/caven.jpg' %}" alt="">
+                    <p><span>1800</span>$</p>
+                </div>
+                <p class="title"> Puma Caven Dime</p>
+                <a href="" data-id="12" class="btn-add-cart">Agregar al carrito</a>
+            </div>
+        </div>
+    </section>
+
+<footer>
+    <p class="author"> by 🤍 <a href="https://www.instagram.com/andymaruz" target="_blank">Andrea Martínez 🤍</a></p>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script>
+    function showCart(x) {
+        document.getElementById("products-id").style.display = "block";
+    }
+    function closeBtn() {
+        document.getElementById("products-id").style.display = "none";
+    }
+
+</script>
+<script src="{% static 'admin/js/custom.js' %}"> </script>
+<script src="{% static 'admin/js/modal.js' %}"> </script>
+</body>
+</html>
+{% endblock %}

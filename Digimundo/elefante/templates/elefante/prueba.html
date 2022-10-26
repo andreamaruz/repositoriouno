@@ -1,6 +1,6 @@
+{% extends 'elefante/layout.html' %}
+{% block content %}
 <!DOCTYPE html>
-
-
 <html lang="en">
 
 <head>
@@ -15,9 +15,6 @@
     <meta charset="UTF-8">
     <title>The Doors</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-
-    <link rel="stylesheet" href="estilos.css" />
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
@@ -27,9 +24,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Compiled and minified Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <h1> No risk, no history</h1>
+    <link rel="stylesheet" href="{% static 'styles/estilos.css' %}">
 
-    <td> <img src="{% static 'img/lisa.jpg' %}" alt="lover"></td>
+    <td> <center> <img src="{% static 'img/lo.jpg' %}" alt="lover"></td></center>
     <style>
         table,
         th,
@@ -46,6 +43,7 @@
 </head>
 
 <body>
+    <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
 
     <table border="1px" , style="width: 100%;">
         <tr>
@@ -67,7 +65,7 @@
             </marquee>
 
             <td data-titlte="Fotografía">
-                <td> <img src="{% static 'img/doors.jpg' %}" alt="puertas"></td>
+            <td> <img src="{% static 'img/doors.jpg' %}" alt="puertas"></td>
             </td>
             <td data-titlte="Canción">
                 <p>
@@ -86,7 +84,7 @@
             </td>
             </marquee>
             <td data-titlte="Fotografía">
-                <td> <img src="{% static 'img/nbhd.jpg' %}" alt="nbhd"></td>
+            <td> <img src="{% static 'img/nbhd.jpg' %}" alt="nbhd"></td>
             </td>
             <td data-titlte="Canción">
                 <p>
@@ -109,10 +107,10 @@
         <!-- Wrapper for slides -->
         <div class="carousel-inner">
             <div class="item active">
-                <td> <img src="{% static 'img/doors.jpg' %}"width="10000" height="50" alt="puertas"></td>
+                <td> <img src="{% static 'img/doors.jpg' %}" width="10000" height="50" alt="puertas"></td>
             </div>
             <div class="item">
-                <td> <img src="{% static 'img/nbhd.jpg' %}"width="10000" height="60" alt="casita"></td> 
+                <td> <img src="{% static 'img/nbhd.jpg' %}" width="10000" height="60" alt="casita"></td>
             </div>
             <div class="item">
                 <td> <img src="{% static 'img/lo.jpg' %}" width="5000" height="30" alt="lover"></td>
@@ -128,26 +126,23 @@
             <span class="glyphicon glyphicon-chevron-right"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
+</div>
+        <td>
+            <p>
+                <center> <img style="border: 20px solid; color: black;" src="{% static 'img/lisa.jpg' %}" alt=""
+                        width="550px" height="300px" />
 
 
-    <td>
-        <p>
-            <center> <img style="border: 20px solid; color: black;" src="{% static 'img/lisa.jpg' %}" alt="" width="550px" 
-                height="300px" />                  
-                    
-                    
-                <style>
-                    img {
-                        max-width: 90%;
-                    }
-                </style>
-            </center>
-        </p>
-    </td>
-
-
-
+                    <style>
+                        img {
+                            max-width: 90%;
+                        }
+                    </style>
+                </center>
+            </p>
+        </td>
+    
+    {% endblock %}
 </body>
 
 </html>

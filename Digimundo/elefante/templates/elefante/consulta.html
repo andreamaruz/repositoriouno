@@ -1,0 +1,110 @@
+{% block content%}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos</title>
+  <link rel="stylesheet" href="{% static 'styles/stylest.css' %}">
+
+  <style>
+    .main {
+      background: white;
+      width: 46%;
+      margin: 5% auto;
+      border-radius: 2px;
+      padding-bottom: 20px;
+    }
+  </style>
+
+</head>
+<body>
+  <main>
+
+    <div class="info">
+      <center> <h1> Consulta de datos de personal</h1></center>
+      <nav class="second-nav">
+      </nav>
+
+    </div>
+
+
+    <table class="table table-bordered">
+      <thead>
+        <tr style="border: 1px solid black;">
+
+          <th>ID</th>
+
+          <th>Usuario</th>
+
+          <th>Nombre</th>
+
+          <th>Apellido</td>
+
+          <th>Telefono</th>
+
+          <th>Telefono Casa</th>
+
+          <th>Nacimiento </th>
+
+          <th>Direccion</td>
+
+          <th>Contacto de Emergencia</th>
+
+          <th>Telefono de Emergencia</th>
+
+          <th>Puesto </th>
+
+          <th>Departamento</td>
+
+          <th>¿Lider?</th>
+
+
+
+        </tr>
+
+      </thead>
+
+
+      <tbody>
+        {% if posts %}
+        {% for info in posts %}
+        <tr>
+
+          <td>{{info.id}}</td>
+          <td>{{info.user}}</td>
+          <td>{{info.first_name}}</td>
+          <td>{{info.last_name}}</td>
+          <td>{{info.telefono}}</td>
+          <td>{{info.telefono_casa}}</td>
+          <td>{{info.nacimiento}}</td>
+          <td>{{info.direccion}}</td>
+          <td>{{info.contacto_emergencia}}</td>
+          <td>{{info.telefono_emergencia}}</td>
+          <td>{{info.puesto}}</td>
+          <td>{{info.departamento}}</td>
+          <td>{{info.is_leader}}</td>
+
+
+      </tbody>
+      {% endfor %}
+
+      {% else %}
+
+      <h1>NO HAY REGISTROS</h1>
+
+      {% endif %}
+  </main>
+  </table>
+  <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
+
+</body>
+
+</html>
+{% endblock %}

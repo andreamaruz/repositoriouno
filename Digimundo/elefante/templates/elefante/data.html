@@ -1,0 +1,182 @@
+{% extends 'elefante/layout.html' %}
+{% load static%}
+{% block content%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datos</title>
+  <link rel="stylesheet" href="{% static 'styles/estilos.css' %}">
+
+  <style>
+    .main {
+      background: white;
+      width: 50%;
+      margin: 5% auto;
+      border-radius: 2px;
+      padding-bottom: 20px;
+    }
+  </style>
+
+</head>
+
+
+<body>
+  <div class="container" style="background-color:  rgb(207, 121, 193);">
+    {% csrf_token %}
+    <!-- Formulario-->
+    <!-- <section class="form-register"> -->
+    <form class="form-register">
+
+
+      <div class="info">
+        <h1 class="titt"> Datos Personales</h1>
+        <nav class="second-nav">
+          <a class="feed" href="{% url 'feed' %}">REGRESAR</a>
+
+
+        </nav>
+        <p class="tecx"> Registro a la base de datos</p>
+      </div>
+
+      <div class="elementos">
+        <!-- campos a llenar -->
+        <div class="elementosForm">
+          <p>
+
+            <input class="controllers" value="{{user.id}}" type="hidden" name="user" id="userField"
+              placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+          </p>
+
+          <p>
+            <label class="etiquetaForm">Nombre:</label>
+            <input class="controllers" type="text" name="nombre" id="nombreField" placeholder="Ingrese su nombre"
+              onkeypress="return ch(event)" required>
+          </p>
+
+          <p>
+            <label class="etiquetaForm">Apellidos: </label>
+            <input class="controllers" type="text" name="apellidos" id="apellidosField"
+              placeholder="Ingrese su apellido" onkeypress="return ch(event)" required>
+          </p>
+
+          <p>
+            <label class="etiquetaForm">Telefono:</label>
+            <input class="controllers" type="telefono" name="telefono" id="telefonoField"
+              placeholder="Ingrese su telefono" required>
+          </p>
+
+          <p>
+            <label class="etiquetaForm">Telefono Casa:</label>
+            <input class="controllers" type="telefono_casa" name="telefono_casa" id="telefono_casaField"
+              placeholder="Ingrese el telefono de su casa" required>
+          </p>
+
+
+
+          <p>
+            <label class="etiquetaForm">Nacimiento:</label>
+            <input class="controllers" type="nacimiento" name="nacimiento" id="nacimientoField"
+              placeholder="Ingrese su fecha de nacimiento" required>
+          </p>
+
+          <p>
+            <label class="etiquetaForm">Direccion: </label>
+            <input class="controllers" type="direccion" name="direccion" id="direccionField"
+              placeholder="Ingrese su direccion" required>
+          </p>
+
+          <p>
+            <label class="etiquetaForm">Contacto de Emergencia:</label>
+            <input class="controllers" type="contacto_emergencia" name="contacto_emergencia"
+              id="contacto_emergenciaField" placeholder="Ingrese su contacto de emergencia" required>
+          </p>
+
+          <p>
+            <label class="etiquetaForm">Telefono de Emergencia:</label>
+            <input class="controllers" type="telefono_emergencia" name="telefono_emergencia"
+              id="telefono_emergenciaField" placeholder="Ingrese su contacto de emergencia" required>
+          </p>
+
+
+          <p>
+            <label class="etiquetaForm">Puesto:</label>
+            <input class="controllers" type="text" name="puesto" id="puestoField" placeholder="Ingrese su puesto"
+              onkeypress="return ch(event)" required>
+          </p>
+          <p>
+            <label class="etiquetaForm">Departamento:</label>
+            <input class="controllers" type="text" name="departamento" id="departamentoField"
+              placeholder="Ingrese su departamento" onkeypress="return ch(event)" required>
+          </p>
+
+          <p>
+
+            <label for="is_leaderField">¿Es lider?</label>
+            <select name="select" id="is_leaderField">
+              <option value="True">Si</option>
+              <option value="False">No</option>
+
+            </select>
+
+
+
+          </p>
+
+        </div>
+        <!-- fin campos a llenar -->
+
+        <!-- <input class="buttons" type="submit" value="Contactanos"> -->
+        <button class="buttons" type="submit" onclick="data()" style="color: black;"> Send </button>
+
+      </div>
+
+    </form>
+    <!-- </section> -->
+    <!-- Fin Formulario-->
+
+    <!-- Fin contenedor -->
+  </div>
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+<script>
+
+  function data() {
+
+    $.ajax({
+      url: "{% url 'contactosregistro' %}",
+      type: "POST",
+      data: {
+        'user': $('#userField').val(),
+        'nombre': $('#nombreField').val(),
+        'apellidos': $('#apellidosField').val(),
+        'telefono': $('#telefonoField').val(),
+        'telefono_casa': $('#telefono_casaField').val(),
+        'nacimiento': $('#nacimientoField').val(),
+        'direccion': $('#direccionField').val(),
+        'contacto_emergencia': $('#contacto_emergenciaField').val(),
+        'telefono_emergencia': $('#telefono_emergenciaField').val(),
+        'puesto': $('#puestoField').val(),
+        'departamento': $('#departamentoField').val(),
+        'is_leader': $('#is_leaderField').val(),
+        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+      }
+    })
+
+  }
+
+
+</script>
+
+
+</html>
+{% endblock %}
