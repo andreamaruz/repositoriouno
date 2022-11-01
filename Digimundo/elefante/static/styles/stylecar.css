@@ -3,10 +3,10 @@ body{
 }
 header{
     background-color: whitesmoke;
-    padding-top: 20px;
+    padding-top: 18px;
     padding-bottom: 18px;
     box-shadow: 0 7px 8px -3px grey;
-    position: absolute;
+    position: fixed;
     width: 100%;
     margin-top: -10px;
     z-index: 99;

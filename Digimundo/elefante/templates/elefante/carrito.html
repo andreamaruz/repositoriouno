@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" type="image" href="https://cdn-icons-png.flaticon.com/512/2130/2130548.png" />
+    <link rel="icon" type="logo" href="https://cdn-icons-png.flaticon.com/512/2130/2130548.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Sneakers</title>
     <link rel="stylesheet" href="{% static 'styles/stylecar.css' %}">
@@ -128,9 +128,9 @@
                 <a title="back" href="{% url 'feed' %}"><img src="{%static 'img/back.png'%}" width="70" height="70"></a>
             </div>
             <div>
-            <img onmouseover="showCart(this)" class="cart" src="{% static 'img/carti.png' %}" width="100" height="100"
-                alt="">
-            <p class="count-product">0</p>
+                <img onmouseover="showCart(this)" class="cart" src="{% static 'img/carti.png' %}" width="100"
+                    height="100" alt="">
+                    <p class="count-product">0</p>
             </div>
             <div class="cart-products" id="products-id">
                 <p class="close-btn" onclick="closeBtn()">X</p>
@@ -158,9 +158,9 @@
                 </div>
                 <input type="hidden">Total: <strong class="price-total">0</strong> $</input>
                 <a href="{% url 'compra' %}" class="hero__cta">Pagar</a>
-
             </div>
         </div>
+
     </header>
 
 
@@ -265,24 +265,26 @@
         </div>
     </section>
 
-<footer>
-    <p class="author"> by 🤍 <a href="https://www.instagram.com/andymaruz" target="_blank">Andrea Martínez 🤍</a></p>
-</footer>
+    <footer>
+        <p class="author"> by 🤍 <a href="https://www.instagram.com/andymaruz" target="_blank">Andrea Martínez 🤍</a>
+        </p>
+    </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<script>
-    function showCart(x) {
-        document.getElementById("products-id").style.display = "block";
-    }
-    function closeBtn() {
-        document.getElementById("products-id").style.display = "none";
-    }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        function showCart(x) {
+            document.getElementById("products-id").style.display = "block";
+        }
+        function closeBtn() {
+            document.getElementById("products-id").style.display = "none";
+        }
 
-</script>
-<script src="{% static 'admin/js/custom.js' %}"> </script>
-<script src="{% static 'admin/js/modal.js' %}"> </script>
+    </script>
+    <script src="{% static 'admin/js/custom.js' %}"> </script>
+    <script src="{% static 'admin/js/modal.js' %}"> </script>
 </body>
+
 </html>
 {% endblock %}
