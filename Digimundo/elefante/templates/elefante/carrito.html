@@ -115,7 +115,22 @@
 
 
     }
+
 </style>
+<style type="text/css">
+    .ventana_flotante {
+        background: none repeat scroll 0 0 #FFFFFF;
+        border: 1px solid #DDDDDD;
+        border-radius: 6px 6px 6px 6px;
+        bottom: 50px;
+        margin-left: -200px;
+        padding: 10px 0 0;
+        position: absolute;
+        text-align: center;
+        width: 200px;
+        z-index: 15;
+    }
+    </style>
 
 <body>
     <header>
@@ -130,7 +145,7 @@
             <div>
                 <img onmouseover="showCart(this)" class="cart" src="{% static 'img/carti.png' %}" width="100"
                     height="100" alt="">
-                    <p class="count-product">0</p>
+                <p class="count-product">0</p>
             </div>
             <div class="cart-products" id="products-id">
                 <p class="close-btn" onclick="closeBtn()">X</p>
@@ -156,14 +171,57 @@
                         <span class="delete-product" data-id="">X</span>
                     </div> -->
                 </div>
-                <input type="hidden">Total: <strong class="price-total">0</strong> $</input>
-                <a href="{% url 'compra' %}" class="hero__cta">Pagar</a>
-            </div>
-        </div>
 
+                <!-- <h2><input type="hidden">Total: <strong class="price-total">0</strong> $</input> </h2> -->
+                <h2><input type="text" id="price-total"> Total 0 $ </h2>
+                <a href="{% url 'compra' %}" class="hero__cta">Pagar</a>
+                <div class="ventana_flotante">
+                    <div class="elementos">
+                        <!-- campos a llenar -->
+                        <div class="elementosForm">
+                            <div
+                            <input class="controllers" value="{{user.id}}" type="hidden" name="user" id="userField"
+                            placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
+                        </div>
+        
+                            <div>
+                                <label class="etiquetaForm">Nombre Completo:</label>
+                                <input class="controllers" type="text" name="nombre_completo" id="nombre_completoField"
+                                    placeholder="Ingrese su nombre completo" onkeypress="return ch(event)" required>
+                            </div>
+        
+                            <div>
+                                <label class="etiquetaForm">Celular:</label>
+                                <input class="controllers" type="telefono" name="celular" id="celularField"
+                                    placeholder="Ingrese un celular vigente" required>
+                            </div>
+        
+                            <div>
+                                <label class="etiquetaForm">Direccion: </label>
+                                <input class="controllers" type="direccion" name="direccion" id="direccionField"
+                                    placeholder="Ingrese su direccion" required>
+                            </div>
+        
+                            <div>
+                                <label class="etiquetaForm">Correo Electrónico:</label>
+                                <input class="controllers" type="text" name="correo_electronico" id="correo_electronicoField"
+                                    placeholder="Ingrese un correo electronico vigente" required>
+                            </div>
+                            
+                    </div>
+                </div>
+                <section class="modal">
+        <div class="modal__container">
+            <h2 class="modal__title">¡Comprar!</h2>
+            <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+                nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
+                <h2><input type="hidden">Total: <strong class="price-total">0</strong> $</input> </h2>
+            <a href="#" class="modal__close">Cerrar Modal</a>
+        </div>
+    </section>
     </header>
 
-
+    
     <section class="container">
         <div class="products">
             <div class="carts">
