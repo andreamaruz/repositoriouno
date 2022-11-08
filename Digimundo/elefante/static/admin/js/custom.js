@@ -1,13 +1,14 @@
 //variables
 let allContainerCart = document.querySelector('.products');
 let containerBuyCart = document.querySelector('.card-items');
-let priceTotal = document.querySelector('.price-total')
+let priceTotal = document.querySelector('.price-total');
 let amountProduct = document.querySelector('.count-product');
 
 
 let buyThings = [];
 let totalCard = 0;
 let countProduct = 0;
+
 
 //functions
 loadEventListenrs();
@@ -17,10 +18,10 @@ function loadEventListenrs() {
     containerBuyCart.addEventListener('click', deleteProduct);
 }
 
-function addProduct(e){
+function addProduct(e) {
     e.preventDefault();
     if (e.target.classList.contains('btn-add-cart')) {
-        const selectProduct = e.target.parentElement; 
+        const selectProduct = e.target.parentElement;
         readTheContent(selectProduct);
     }
 }
@@ -32,12 +33,12 @@ function deleteProduct(e) {
         buyThings.forEach(value => {
             if (value.id == deleteId) {
                 let priceReduce = parseFloat(value.price) * parseFloat(value.amount);
-                totalCard =  totalCard - priceReduce;
+                totalCard = totalCard - priceReduce;
                 totalCard = totalCard.toFixed(2);
             }
         });
         buyThings = buyThings.filter(product => product.id !== deleteId);
-        
+
         countProduct--;
     }
     //FIX: El contador se quedaba con "1" aunque ubiera 0 productos
@@ -48,7 +49,7 @@ function deleteProduct(e) {
     loadHtml();
 }
 
-function readTheContent(product){
+function readTheContent(product) {
     const infoProduct = {
         image: product.querySelector('div img').src,
         title: product.querySelector('.title').textContent,
@@ -79,10 +80,10 @@ function readTheContent(product){
     //console.log(infoProduct);
 }
 
-function loadHtml(){
+ function loadHtml() {
     clearHtml();
     buyThings.forEach(product => {
-        const {image, title, price, amount, id} = product;
+        const { image, title, price, amount, id } = product;
         const row = document.createElement('div');
         row.classList.add('item');
         row.innerHTML = `
@@ -99,14 +100,12 @@ function loadHtml(){
 
         priceTotal.innerHTML = totalCard;
 
+
+
         amountProduct.innerHTML = countProduct;
     });
-}
- function clearHtml(){
+    
+} 
+function clearHtml() {
     containerBuyCart.innerHTML = '';
- }
-
-
-$('#myModal').on('shown.bs.modal', function () {
-    $('#myInput').trigger('focus')
-})
+}

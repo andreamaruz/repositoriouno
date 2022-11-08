@@ -25,12 +25,12 @@ class Contacto (models.Model):
     correo_electronico = models.CharField(max_length=250, null=True)
 #productos,compras unitarias, totales
 
-class compra(models.Model):
+class Carrito(models.Model):
     user = models.ForeignKey(
     User, on_delete=models.CASCADE, related_name='carrito', null=True)
     nombre_completo = models.CharField(max_length=250, null=True)
     celular = models.CharField(max_length=250, null=True)
     direccion= models.CharField(max_length=250, null=True, unique=False)
     correo_electronico = models.CharField(max_length=250, null=True, unique=False)
-    total = models.IntegerField()
+    total = models.CharField(max_length=250, null=True, unique=False)
 

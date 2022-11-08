@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from .models import *
 from .models import Post
 from .models import Contacto
+from .models import Carrito
 from .forms import UserRegisterForm
 from django.contrib import messages
 from django.http import HttpResponse
@@ -121,35 +122,25 @@ def inicio(request):
 
 
 def carrito(request):
-
-    return render(request, 'elefante/carrito.html')
-
-
-def compra(request):
+    print(str(request))
     if request.method == 'POST':
-        correoPrueba = request.POST['correo_electronico']
-        asunto = request.POST['nombre_completo'] + ' '  + request.POST['celular'] + \
-            ' con ' + request.POST['direccion'] + \
-            ' con correo ' + request.POST['correo_electronico'] + \
-            ' con total ' + request.POST['total']
-        compra = compra.objects.create(
+
+        carrito = Carrito.objects.create(
 
             nombre_completo=request.POST['nombre_completo'],
             celular=request.POST['celular'],
             direccion=request.POST['direccion'],
             correo_electronico=request.POST['correo_electronico'],
-            total=request.POST['total'],
+            total=request.POST['precioTotal'],
+            user_id=request.POST['user']
 
 
         )
-        compra.save()
+        carrito.save()
 
-        send_mail(
-            'Correo de Confirmacion',
-            asunto,
-            'Hola, confirmamos su compra en Tienda de Sneakers',
-            [correoPrueba, 'andreamartinezdl1@gmail.com'],
-            fail_silently=False
-        )
-    context = {}
-    return render(request, 'elefante/compra.html')
+    return render(request, 'elefante/carrito.html')
+
+
+def index(request):
+
+    return render(request, 'elefante/index.html')

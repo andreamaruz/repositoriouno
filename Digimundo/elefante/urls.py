@@ -20,6 +20,6 @@ urlpatterns = [
     url('^inicio/$', views.inicio, name="inicio"),
     url('^feed/$', views.feed, name="feed"),
     url('^carrito/$', views.carrito, name="carrito"),
-    url('^compra/$', views.compra, name="compra"),
+    url('^index/$', views.index, name="index"),
 
 ]

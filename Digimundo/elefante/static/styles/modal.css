@@ -55,8 +55,8 @@
     color: #fff;
     background-color:rgb(129, 129, 202);
     padding: 1em 3em;
-    border: 1px solid;
-    border-radius: 6px;
+    border: 10px solid;
+    border-radius: 10px;
     display: center-block;
     font-weight: 300;
     transition: background-color .3s;

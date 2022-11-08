@@ -4,20 +4,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="logo" href="https://cdn-icons-png.flaticon.com/512/2130/2130548.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Sneakers</title>
     <link rel="stylesheet" href="{% static 'styles/stylecar.css' %}">
-    <link rel="stylesheet" href="{% static 'styles/styles.css' %}">
     <link rel="stylesheet" href="{% static 'styles/modal.css' %}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" &amp;gt;>
 
 </head>
 <style>
     .boton {
-        background: rgb(129, 129, 202);
+        background: rgb(226, 39, 39);
         border: 2px solid wheat;
         border-radius: 6px;
         border: none;
@@ -38,7 +36,7 @@
     .boton a {
         font-family: system-ui;
         text-decoration: none;
-        background: rgb(129, 129, 202);
+        background: rgb(226, 39, 39);
         padding: 9px 23px;
         color: #fff;
         font-size: 17px;
@@ -54,14 +52,14 @@
     }
 
     .boton {
-        background-color: rgb(129, 129, 202);
+        background-color: rgb(226, 39, 39);
         color: white;
-        border: 2px solid rgb(129, 129, 202);
+        border: 2px solid rgb(226, 39, 39);
     }
 
     .boton:hover {
         background: #fff;
-        color: rgb(129, 129, 202);
+        color: rgb(226, 39, 39);
 
 
     }
@@ -115,22 +113,7 @@
 
 
     }
-
 </style>
-<style type="text/css">
-    .ventana_flotante {
-        background: none repeat scroll 0 0 #FFFFFF;
-        border: 1px solid #DDDDDD;
-        border-radius: 6px 6px 6px 6px;
-        bottom: 50px;
-        margin-left: -200px;
-        padding: 10px 0 0;
-        position: absolute;
-        text-align: center;
-        width: 200px;
-        z-index: 15;
-    }
-    </style>
 
 <body>
     <header>
@@ -160,7 +143,6 @@
                         </div>
                         <span>X</span>
                     </div>
-    
                     <div class="item">
                         <img src="./images/products/keyboard-1.jpg" alt="">
                         <div class="item-content">
@@ -171,57 +153,90 @@
                         <span class="delete-product" data-id="">X</span>
                     </div> -->
                 </div>
+                <!-- <h2><input type="hidden">Total: <strong class="price-total">0</strong> $</input> </h2>  -->
+                <a href="#" class="hero__cta">Pagar</a>
 
-                <!-- <h2><input type="hidden">Total: <strong class="price-total">0</strong> $</input> </h2> -->
-                <h2><input type="text" id="price-total"> Total 0 $ </h2>
-                <a href="{% url 'compra' %}" class="hero__cta">Pagar</a>
-                <div class="ventana_flotante">
-                    <div class="elementos">
-                        <!-- campos a llenar -->
-                        <div class="elementosForm">
-                            <div
-                            <input class="controllers" value="{{user.id}}" type="hidden" name="user" id="userField"
-                            placeholder="Ingrese su usuario" onkeypress="return ch(event)" required>
-                        </div>
-        
-                            <div>
-                                <label class="etiquetaForm">Nombre Completo:</label>
-                                <input class="controllers" type="text" name="nombre_completo" id="nombre_completoField"
-                                    placeholder="Ingrese su nombre completo" onkeypress="return ch(event)" required>
-                            </div>
-        
-                            <div>
-                                <label class="etiquetaForm">Celular:</label>
-                                <input class="controllers" type="telefono" name="celular" id="celularField"
-                                    placeholder="Ingrese un celular vigente" required>
-                            </div>
-        
-                            <div>
-                                <label class="etiquetaForm">Direccion: </label>
-                                <input class="controllers" type="direccion" name="direccion" id="direccionField"
-                                    placeholder="Ingrese su direccion" required>
-                            </div>
-        
-                            <div>
-                                <label class="etiquetaForm">Correo Electrónico:</label>
-                                <input class="controllers" type="text" name="correo_electronico" id="correo_electronicoField"
-                                    placeholder="Ingrese un correo electronico vigente" required>
-                            </div>
-                            
-                    </div>
-                </div>
                 <section class="modal">
-        <div class="modal__container">
-            <h2 class="modal__title">¡Comprar!</h2>
-            <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
-                nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
-                <h2><input type="hidden">Total: <strong class="price-total">0</strong> $</input> </h2>
-            <a href="#" class="modal__close">Cerrar Modal</a>
-        </div>
-    </section>
-    </header>
+                    <div class="modal__container">
+                        <h2 class="modal__title">¡Comprar!</h2>
+                        <!-- Formulario-->
+                        <!-- <section class="form-register"> -->
+                        {% csrf_token %}
+                        <form class="form-register">
+                            <!-- campos a llenar -->
+                            <div class="elementosForm">
+                                <div>
+                                    <input class="controllers" value="{{user.id}}" type="hidden" name="user"
+                                        id="userField" placeholder="Ingrese su usuario" onkeypress="return ch(event)"
+                                        required>
 
-    
+                                </div>
+                                <div>
+                                    <label class="etiquetaForm">Nombre Completo:</label>
+                                    <input class="controllers" type="text" name="nombre_completo"
+                                        id="nombre_completoField" placeholder="" onkeypress="return ch(event)" required>
+                                </div>
+
+                                <div>
+                                    <label class="etiquetaForm">Celular:</label>
+                                    <input class="controllers" type="telefono" name="celular" id="celularField"
+                                        placeholder="" onkeypress="return ch(event)" required>
+                                </div>
+
+                                <div>
+                                    <label class="etiquetaForm">Direccion: </label>
+                                    <input class="controllers" type="direccion" name="direccion" id="direccionField"
+                                        placeholder="" onkeypress="return ch(event)" required>
+                                </div>
+
+                                <div>
+                                    <label class="etiquetaForm">Correo Electrónico:</label>
+                                    <input class="controllers" type="text" name="correo_electronico"
+                                        id="correo_electronicoField" placeholder="" onkeypress="return ch(event)"
+                                        required>
+                                </div>
+                                <div>
+                                    <label class="etiquetaForm">Total:</label>
+                                    <strong class="price-total" id="totalCard">
+
+                                    </strong>
+
+
+                                    <input class="con" type="text" name="totalField" id="totalField" placeholder=""
+                                        onkeypress="return ch(event)">
+                                </div>
+                                <button class="boton" type="submit" onclick="carrito()"> Comprar</button>
+
+                            </div>
+                        </form>
+                        <a href="#" class="modal__close">Cerrar Modal</a>
+                    </div>
+                </section>
+                <script src="{% static 'admin/js/modal.js' %}"> </script>
+    </header>
+    <script>
+
+        function carrito() {
+
+            $.ajax({
+                url: "{% url 'carrito' %}",
+                type: "POST",
+                data: {
+                    'user': $('#userField').val(),
+                    'nombre_completo': $('#nombre_completoField').val(),
+                    'username': $('#usernameField').val(),
+                    'celular': $('#celularField').val(),
+                    'fecha_nacimiento': $('#fecha_nacimientoField').val(),
+                    'direccion': $('#direccionField').val(),
+                    'correo_electronico': $('#correo_electronicoField').val(),
+                    'total': $('totalCard').val(),
+                    csrfmiddlewaretoken: '{{ csrf_token }}',
+                }
+            })
+
+        }
+    </script>
+
     <section class="container">
         <div class="products">
             <div class="carts">
@@ -338,7 +353,6 @@
         function closeBtn() {
             document.getElementById("products-id").style.display = "none";
         }
-
     </script>
     <script src="{% static 'admin/js/custom.js' %}"> </script>
     <script src="{% static 'admin/js/modal.js' %}"> </script>
