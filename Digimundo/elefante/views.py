@@ -125,17 +125,16 @@ def carrito(request):
     print(str(request))
     if request.method == 'POST':
 
-        carrito = Carrito.objects.create(
+        total1=request.POST['total2']
+        print(total1)
 
+        carrito = Carrito.objects.create(
             nombre_completo=request.POST['nombre_completo'],
             celular=request.POST['celular'],
             direccion=request.POST['direccion'],
             correo_electronico=request.POST['correo_electronico'],
-            total=request.POST['precioTotal'],
-            user_id=request.POST['user']
-
-
-        )
+            total=total1,
+            user_id=request.POST['user'])
         carrito.save()
 
     return render(request, 'elefante/carrito.html')

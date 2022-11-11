@@ -110,8 +110,10 @@
     .hero__cta:hover {
         background: #fff;
         color: rgb(129, 129, 202);
+    }
 
-
+    .sinborde {
+        border: 0;
     }
 </style>
 
@@ -156,6 +158,14 @@
                 <!-- <h2><input type="hidden">Total: <strong class="price-total">0</strong> $</input> </h2>  -->
                 <a href="#" class="hero__cta">Pagar</a>
 
+
+                <style>
+                    #totalCard1 {
+                        border-style: none;
+                        background: transparent;
+                    }
+                </style>
+
                 <section class="modal">
                     <div class="modal__container">
                         <h2 class="modal__title">¡Comprar!</h2>
@@ -198,15 +208,17 @@
                                 <div>
                                     <label class="etiquetaForm">Total:</label>
                                     <strong class="price-total" id="totalCard">
-
                                     </strong>
+                                    <!-- <input class="price-total" type="text" name="totalField" id="totalField" placeholder=""
+                                        onkeypress="return ch(event)"> -->
+                                </div>
 
-
-                                    <input class="con" type="text" name="totalField" id="totalField" placeholder=""
-                                        onkeypress="return ch(event)">
+                                <div>
+                                    <label class="etiquetaForm">Total de input:</label>
+                                    <input class="price-total" id="totalCard1">
                                 </div>
                                 <button class="boton" type="submit" onclick="carrito()"> Comprar</button>
-
+                                
                             </div>
                         </form>
                         <a href="#" class="modal__close">Cerrar Modal</a>
@@ -214,6 +226,7 @@
                 </section>
                 <script src="{% static 'admin/js/modal.js' %}"> </script>
     </header>
+
     <script>
 
         function carrito() {
@@ -223,13 +236,13 @@
                 type: "POST",
                 data: {
                     'user': $('#userField').val(),
+                    'total2': $('#totalCard1').val(),
                     'nombre_completo': $('#nombre_completoField').val(),
                     'username': $('#usernameField').val(),
                     'celular': $('#celularField').val(),
                     'fecha_nacimiento': $('#fecha_nacimientoField').val(),
                     'direccion': $('#direccionField').val(),
                     'correo_electronico': $('#correo_electronicoField').val(),
-                    'total': $('totalCard').val(),
                     csrfmiddlewaretoken: '{{ csrf_token }}',
                 }
             })

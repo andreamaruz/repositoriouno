@@ -95,13 +95,11 @@ function readTheContent(product) {
             </div>
             <span class="delete-product" data-id="${id}">X</span>
         `;
-
+        document.getElementById("totalCard1").value = priceTotal.innerHTML;
         containerBuyCart.appendChild(row);
 
         priceTotal.innerHTML = totalCard;
-
-
-
+        
         amountProduct.innerHTML = countProduct;
     });
     
